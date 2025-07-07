@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beni Özledin mi?</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background-color: #fff0f5;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      height: 100vh; overflow: hidden;
+    }
+    h1 { font-size: 2rem; color: #d6336c; text-align: center; margin: 20px; }
+    .buttons { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    button {
+      font-size: 1.2rem; padding: 12px 24px;
+      border: none; border-radius: 8px;
+      cursor: pointer; transition: 0.3s;
+    }
+    #yes { background-color: #38b000; color: white; }
+    #no {
+      background-color: #ef233c; color: white;
+      position: absolute;
+    }
+    .note {
+      margin-top: 60px; color: #444;
+      font-size: 1rem; text-align: center;
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      button { font-size: 1rem; padding: 10px 18px; }
+      .note { font-size: 0.9rem; padding: 0 10px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Beni özledin mi? 💭</h1>
+  <div class="buttons">
+    <button id="yes" onclick="alert('Ben de seni 😌')">Evet</button>
+    <button id="no">Hayır</button>
+  </div>
+  <div class="note">Hayır bir seçenek değil... istersen dene 😌</div>
+  <script>
+    const noBtn = document.getElementById("no");
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    }
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+  </script>
+</body>
+</html>
